@@ -1,0 +1,17 @@
+<h1>Details</h1>
+
+<h2>{{question.text}}</h2>
+<p>Date - {{question.pub_date}}</p> 
+<p><h4>Choices</h4></p>
+<form action = "{%url 'polls:votes' question.id %}" method = "post">
+    {%csrf_token%}
+    {%for choice in question.choice_set.all%}
+        <input type="radio" name="choice" id="choice{{forloop.counter}}" value="{{choice.id}}"/>
+        <label for="choice{{forloop.counter}}">{{choice.text}}</label>
+        <br>
+    {%endfor%}
+    <input type="submit" value = "Vote">
+</form>
+<a href="{%url 'polls:choice_add' question.id%}">Add Choice</a> <br>
+<a href="{%url 'polls:results' question.id%}">Results</a><br>
+<a href = "{%url 'polls:test'%}">Home</a>

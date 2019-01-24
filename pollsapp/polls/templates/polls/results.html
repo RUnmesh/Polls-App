@@ -1,0 +1,11 @@
+<h1>{{question.text}}</h1>
+
+<p>Total responses - {{sum}}</p>
+
+<ol>
+    {% for choice in choices %}
+        <li>{{choice.text}} - {{choice.votes}}</li>
+    {% endfor %}
+</ol>
+
+<a href = "{%url 'polls:test'%}">Home</a>

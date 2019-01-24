@@ -1,0 +1,8 @@
+<h1>Polls App</h1>
+<h4>These are the latest questions</h4>
+<ol>
+    {% for ques in questions %}
+        <li><a href ={%url 'polls:details' ques.id%}>{{ques.text}}</a></li>
+    {% endfor %}
+</ol>
+<a href="{%url 'polls:add'%}">Add Question</a>
